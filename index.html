@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmospheric Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Dynamic Weather Background -->
+    <div id="weatherBackground" class="weather-bg"></div>
+
+    <!-- Atmospheric Layers Container -->
+    <div class="atmosphere-container">
+
+        <!-- App Title -->
+        <div class="app-header">
+            <h1 class="app-title">🌍 Atmospheric Weather Forecast</h1>
+        </div>
+
+        <!-- Exosphere Layer -->
+        <div class="atmosphere-layer exosphere">
+            <div class="layer-label">Exosphere (600+ km)</div>
+            <div class="layer-elements">
+                <div class="satellite"></div>
+                <div class="satellite satellite-2"></div>
+                <div class="satellite satellite-3"></div>
+                <div class="star-field">
+                    <div class="star"></div>
+                    <div class="star star-2"></div>
+                    <div class="star star-3"></div>
+                    <div class="star star-4"></div>
+                    <div class="star star-5"></div>
+                </div>
+                <div class="space-debris"></div>
+                <div class="space-debris debris-2"></div>
+                <!-- Spaceships -->
+                <div class="spaceship">
+                    <div class="ship-body"></div>
+                    <div class="ship-dome"></div>
+                    <div class="ship-lights"></div>
+                </div>
+                <div class="spaceship spaceship-2">
+                    <div class="ship-body"></div>
+                    <div class="ship-dome"></div>
+                    <div class="ship-lights"></div>
+                </div>
+            </div>
+
+            <!-- Temperature Input Section in Exosphere -->
+            <div class="layer-content">
+                <div class="input-section">
+                    <h3>🌡️ Temperature</h3>
+                    <div class="input-group">
+                        <label for="temperature">Temperature (°C)</label>
+                        <input type="number" id="temperature" placeholder="Enter temperature" step="0.1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thermosphere Layer -->
+        <div class="atmosphere-layer thermosphere">
+            <div class="layer-label">Thermosphere (80-600 km)</div>
+            <div class="layer-elements">
+                <div class="aurora"></div>
+                <div class="aurora aurora-2"></div>
+                <!-- Bright Aurora Lights -->
+                <div class="aurora-bright"></div>
+                <div class="aurora-bright aurora-bright-2"></div>
+                <div class="satellite satellite-3"></div>
+                <div class="solar-radiation"></div>
+                <div class="iss"></div>
+            </div>
+
+            <!-- Air Pressure Section in Thermosphere -->
+            <div class="layer-content">
+                <div class="input-section">
+                    <h3>📊 Air Pressure</h3>
+                    <div class="input-group">
+                        <label for="force">Force (Newton)</label>
+                        <input type="number" id="force" placeholder="Enter force" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="area">Area (m²)</label>
+                        <input type="number" id="area" placeholder="Enter area" step="0.1">
+                    </div>
+                    <div class="result-box">
+                        <label>Pressure Result</label>
+                        <div class="result-display" id="pressureResult">0 Pa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mesosphere Layer -->
+        <div class="atmosphere-layer mesosphere">
+            <div class="layer-label">Mesosphere (50-80 km)</div>
+            <div class="layer-elements">
+                <!-- Enhanced Meteor Shower -->
+                <div class="meteor"></div>
+                <div class="meteor meteor-2"></div>
+                <div class="meteor meteor-3"></div>
+                <div class="meteor meteor-4"></div>
+                <div class="meteor meteor-5"></div>
+                <div class="meteor meteor-6"></div>
+                <div class="meteor meteor-7"></div>
+                <div class="meteor meteor-8"></div>
+                <div class="meteor meteor-9"></div>
+                <div class="meteor meteor-10"></div>
+                <div class="meteor meteor-11"></div>
+                <div class="meteor meteor-12"></div>
+                <div class="noctilucent-cloud"></div>
+                <div class="noctilucent-cloud nc-2"></div>
+                <div class="cosmic-dust"></div>
+            </div>
+
+            <!-- Moisture Level Section in Mesosphere -->
+            <div class="layer-content">
+                <div class="input-section">
+                    <h3>💧 Moisture Level</h3>
+                    <div class="moisture-subsection">
+                        <h4>Relative Humidity (RH)</h4>
+                        <div class="input-group">
+                            <label for="moistureVapor">Water Vapor (g)</label>
+                            <input type="number" id="moistureVapor" placeholder="12.5" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="moistureSaturation">Saturation Point (g)</label>
+                            <input type="number" id="moistureSaturation" placeholder="17.3" step="0.1">
+                        </div>
+                        <div class="result-box">
+                            <label>RH = (Vapor ÷ Saturation) × 100</label>
+                            <div class="result-display" id="moistureRHResult">0 %</div>
+                        </div>
+                    </div>
+
+                    <div class="moisture-subsection">
+                        <h4>Absolute Humidity (AH)</h4>
+                        <div class="input-group">
+                            <label for="ahVapor">Water Vapor (g)</label>
+                            <input type="number" id="ahVapor" placeholder="15.5" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="ahVolume">Air Volume (m³)</label>
+                            <input type="number" id="ahVolume" placeholder="1" step="0.1">
+                        </div>
+                        <div class="result-box">
+                            <label>AH = Vapor ÷ Volume</label>
+                            <div class="result-display" id="moistureAHResult">0 g/m³</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stratosphere Layer -->
+        <div class="atmosphere-layer stratosphere">
+            <div class="layer-label">Stratosphere (12-50 km)</div>
+            <div class="layer-elements">
+                <div class="ozone-layer"></div>
+                <div class="ozone-particles">
+                    <div class="ozone-particle"></div>
+                    <div class="ozone-particle op-2"></div>
+                    <div class="ozone-particle op-3"></div>
+                </div>
+                <div class="weather-balloon"></div>
+                <div class="weather-balloon wb-2"></div>
+                <!-- Flying Planes -->
+                <div class="plane"></div>
+                <div class="plane plane-2"></div>
+                <div class="plane plane-3"></div>
+                <div class="jet-stream"></div>
+                <div class="stratospheric-wind"></div>
+            </div>
+
+            <!-- Rain Amount Section in Stratosphere -->
+            <div class="layer-content">
+                <div class="input-section">
+                    <h3>🌧️ Rain Amount</h3>
+                    <div class="rain-visual">
+                        <div class="rain-container">
+                            <div class="rain-fill" id="rainFill"></div>
+                            <div class="rain-label">
+                                <span class="rain-min">0mm</span>
+                                <span class="rain-max">50mm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="rainSlider">Adjust Rain Level</label>
+                        <input type="range" id="rainSlider" min="0" max="50" value="0" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="rainfall">Or Enter Exact Value (mm)</label>
+                        <input type="number" id="rainfall" placeholder="5" step="0.1" min="0" max="50">
+                    </div>
+                    <div class="rain-buttons">
+                        <button class="rain-btn" data-value="0">No Rain</button>
+                        <button class="rain-btn" data-value="10">Light</button>
+                        <button class="rain-btn" data-value="25">Moderate</button>
+                        <button class="rain-btn" data-value="40">Heavy</button>
+                        <button class="rain-btn" data-value="50">Extreme</button>
+                    </div>
+                    <div class="result-box">
+                        <label>Current Rainfall</label>
+                        <div class="result-display" id="rainResult">0.0 mm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troposphere Layer (Main Weather Layer) -->
+        <div class="atmosphere-layer troposphere">
+            <div class="layer-label">Troposphere (0-12 km)</div>
+            <div class="layer-elements">
+                <div class="cloud-element"></div>
+                <div class="cloud-element cloud-2"></div>
+                <div class="cloud-element cloud-3"></div>
+                <div class="bird"></div>
+                <div class="bird bird-2"></div>
+                <div class="airplane"></div>
+                <div class="wind-flow"></div>
+                <div class="mountain-peak"></div>
+                <div class="rain-drop"></div>
+                <div class="rain-drop rd-2"></div>
+                <div class="lightning"></div>
+            </div>
+
+            <!-- Cloud Coverage Section in Troposphere -->
+            <div class="layer-content">
+                <div class="input-section cloud-section">
+                    <h3>☁️ Cloud Coverage</h3>
+                    <div class="cloud-selection">
+                        <div class="cloud-card" data-coverage="0">
+                            <div class="cloud-icon">☀️</div>
+                            <div class="cloud-name">Clear</div>
+                            <div class="cloud-percent">0%</div>
+                        </div>
+                        <div class="cloud-card" data-coverage="20">
+                            <div class="cloud-icon">🌤️</div>
+                            <div class="cloud-name">Partly Cloudy</div>
+                            <div class="cloud-percent">20%</div>
+                        </div>
+                        <div class="cloud-card" data-coverage="40">
+                            <div class="cloud-icon">⛅</div>
+                            <div class="cloud-name">Cloudy</div>
+                            <div class="cloud-percent">40%</div>
+                        </div>
+                        <div class="cloud-card" data-coverage="60">
+                            <div class="cloud-icon">☁️</div>
+                            <div class="cloud-name">Overcast</div>
+                            <div class="cloud-percent">60%</div>
+                        </div>
+                        <div class="cloud-card" data-coverage="80">
+                            <div class="cloud-icon">🌫️</div>
+                            <div class="cloud-name">Heavy</div>
+                            <div class="cloud-percent">80%</div>
+                        </div>
+                        <div class="cloud-card" data-coverage="100">
+                            <div class="cloud-icon">☁️</div>
+                            <div class="cloud-name">Complete</div>
+                            <div class="cloud-percent">100%</div>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <label>Selected Cloud Coverage</label>
+                        <div class="result-display" id="cloudResult">Not Selected</div>
+                    </div>
+                </div>
+
+                <!-- Predict Button -->
+                <div class="predict-section">
+                    <button id="predictBtn" class="predict-btn">🔮 Predict Weather</button>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-section hidden">
+                    <h2>Weather Prediction Results</h2>
+                    <div id="weatherPrediction" class="weather-prediction"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grass Ground Surface (At Bottom of Page) -->
+    <div class="grass-ground">
+        <div class="grass-blade"></div>
+        <div class="grass-blade grass-blade-2"></div>
+        <div class="grass-blade grass-blade-3"></div>
+        <div class="grass-blade grass-blade-4"></div>
+        <div class="grass-blade grass-blade-5"></div>
+        <div class="grass-blade grass-blade-6"></div>
+        <div class="grass-blade grass-blade-7"></div>
+        <div class="grass-blade grass-blade-8"></div>
+
+        <!-- Animals on Grass -->
+        <div class="tree">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+            <div class="tree-leaves tree-leaves-2"></div>
+            <div class="tree-leaves tree-leaves-3"></div>
+        </div>
+        <div class="giraffe">
+            <div class="giraffe-body"></div>
+            <div class="giraffe-neck"></div>
+            <div class="giraffe-head"></div>
+            <div class="giraffe-leg giraffe-leg-1"></div>
+            <div class="giraffe-leg giraffe-leg-2"></div>
+            <div class="giraffe-leg giraffe-leg-3"></div>
+            <div class="giraffe-leg giraffe-leg-4"></div>
+            <div class="giraffe-spots"></div>
+        </div>
+        <div class="elephant">
+            <div class="elephant-body"></div>
+            <div class="elephant-head"></div>
+            <div class="elephant-trunk"></div>
+            <div class="elephant-ear elephant-ear-left"></div>
+            <div class="elephant-ear elephant-ear-right"></div>
+            <div class="elephant-leg elephant-leg-1"></div>
+            <div class="elephant-leg elephant-leg-2"></div>
+            <div class="elephant-leg elephant-leg-3"></div>
+            <div class="elephant-leg elephant-leg-4"></div>
+            <div class="elephant-tusk elephant-tusk-left"></div>
+            <div class="elephant-tusk elephant-tusk-right"></div>
+        </div>
+        <div class="lion">
+            <div class="lion-body"></div>
+            <div class="lion-head"></div>
+            <div class="lion-mane"></div>
+            <div class="lion-leg lion-leg-1"></div>
+            <div class="lion-leg lion-leg-2"></div>
+            <div class="lion-leg lion-leg-3"></div>
+            <div class="lion-leg lion-leg-4"></div>
+            <div class="lion-tail"></div>
+            <div class="lion-tail-tuft"></div>
+        </div>
+    </div>
+
+    <!-- Sound Toggle Button -->
+    <button id="soundToggle" class="sound-toggle">🔊</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
