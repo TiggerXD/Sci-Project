@@ -333,53 +333,53 @@ function predictWeather() {
 
     // Generate prediction HTML
     const predictionHTML = `
-        <div style="text-align: center; margin-bottom: 30px;">
-            <div style="font-size: 5rem; margin-bottom: 20px;">${emoji}</div>
-            <h3 style="font-size: 2.5rem; color: var(--text-accent); margin-bottom: 10px;">${description}</h3>
-            <p style="font-size: 1.3rem; color: var(--text-muted);">${tempDesc} and ${humidityDesc}</p>
+        <div class="prediction-header">
+            <div class="prediction-emoji">${emoji}</div>
+            <h3 class="prediction-title">${description}</h3>
+            <p class="prediction-desc">${tempDesc} and ${humidityDesc}</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">🌡️ Temperature</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${temp}°C</p>
+        <div class="prediction-grid">
+            <div class="prediction-card">
+                <h4>🌡️ Temperature</h4>
+                <p class="prediction-value">${temp}°C</p>
                 <p style="color: var(--text-muted);">${tempDesc} conditions</p>
             </div>
             
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">💧 Humidity</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${weatherData.moistureRH.toFixed(1)}%</p>
+            <div class="prediction-card">
+                <h4>💧 Humidity</h4>
+                <p class="prediction-value">${weatherData.moistureRH.toFixed(1)}%</p>
                 <p style="color: var(--text-muted);">${humidityDesc}</p>
             </div>
             
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">📊 Pressure</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${weatherData.pressure.toFixed(0)} Pa</p>
+            <div class="prediction-card">
+                <h4>📊 Pressure</h4>
+                <p class="prediction-value">${weatherData.pressure.toFixed(0)} Pa</p>
                 <p style="color: var(--text-muted);">${pressureDesc}</p>
             </div>
             
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">🌧️ Rainfall</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${weatherData.rainfall.toFixed(1)} mm</p>
+            <div class="prediction-card">
+                <h4>🌧️ Rainfall</h4>
+                <p class="prediction-value">${weatherData.rainfall.toFixed(1)} mm</p>
                 <p style="color: var(--text-muted);">${weatherData.rainfall > 0 ? 'Precipitation expected' : 'No precipitation'}</p>
             </div>
             
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">☁️ Cloud Cover</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${weatherData.cloudCoverage}%</p>
+            <div class="prediction-card">
+                <h4>☁️ Cloud Cover</h4>
+                <p class="prediction-value">${weatherData.cloudCoverage}%</p>
                 <p style="color: var(--text-muted);">${weatherData.cloudCoverage > 50 ? 'Mostly cloudy' : 'Clear skies'}</p>
             </div>
             
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--glass-border);">
-                <h4 style="color: var(--primary); margin-bottom: 10px;">💨 Absolute Humidity</h4>
-                <p style="font-size: 1.8rem; font-weight: bold;">${weatherData.moistureAH.toFixed(1)} g/m³</p>
+            <div class="prediction-card">
+                <h4>💨 Absolute Humidity</h4>
+                <p class="prediction-value">${weatherData.moistureAH.toFixed(1)} g/m³</p>
                 <p style="color: var(--text-muted);">Water vapor density</p>
             </div>
         </div>
         
-        <div style="margin-top: 40px; padding: 30px; background: rgba(167, 139, 250, 0.1); border-radius: 15px; border: 2px solid var(--secondary);">
+        <div class="forecast-container">
             <h4 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px;">📅 7-Day Forecast</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; margin-top: 20px;">
+            <div class="forecast-grid">
                 ${generateSevenDayForecast(temp, weatherCondition)}
             </div>
         </div>
@@ -429,7 +429,7 @@ function generateSevenDayForecast(baseTemp, baseCondition) {
         }
 
         forecastHTML += `
-            <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; border: 1px solid var(--glass-border);">
+            <div class="forecast-card">
                 <p style="font-weight: 600; margin-bottom: 10px; color: var(--text-muted);">${days[i]}</p>
                 <div style="font-size: 2.5rem; margin: 10px 0;">${emojis[dayCondition] || emojis.sunny}</div>
                 <p style="font-size: 1.3rem; font-weight: bold; color: var(--primary);">${dayTemp}°C</p>
